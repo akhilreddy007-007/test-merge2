@@ -1,0 +1,72 @@
+/* Floating container */
+.leaderboard-widget {
+  position: fixed;
+  bottom: 80px;
+  right: 20px;
+  text-align: right;
+  z-index: 9999;
+  font-family: Arial, sans-serif;
+}
+
+/* Toggle button */
+.leaderboard-toggle {
+  background: linear-gradient(135deg, #634444, #061ba7);
+  color: white;
+  border: none;
+  padding: 10px 16px;
+  border-radius: 25px;
+  font-size: 14px;
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow: 0 4px 8px rgba(176, 3, 3, 0.3);
+  transition: all 0.3s;
+}
+
+.leaderboard-toggle:hover {
+  transform: scale(1.05);
+  background: linear-gradient(135deg, #b11010, #000b55);
+
+}
+
+/* Panel */
+.leaderboard-panel {
+  margin-top: 10px;
+  background: rgba(30, 30, 30, 0.95);
+  color: white;
+  border-radius: 10px;
+  padding: 12px;
+  width: 280px;
+  max-height: 300px;
+  overflow-y: auto;
+  box-shadow: 0 8px 16px rgba(0,0,0,0.4);
+  animation: slideUp 0.3s ease-in-out;
+}
+
+@keyframes slideUp {
+  from { transform: translateY(20px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+.leaderboard-panel h3 {
+  margin-top: 0;
+  text-align: center;
+  font-size: 16px;
+  border-bottom: 1px solid #555;
+  padding-bottom: 6px;
+}
+
+.leaderboard-panel table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+}
+
+.leaderboard-panel th,
+.leaderboard-panel td {
+  padding: 6px;
+  text-align: center;
+}
+
+.leaderboard-panel tr:nth-child(even) {
+  background: rgba(255, 255, 255, 0.1);
+}
