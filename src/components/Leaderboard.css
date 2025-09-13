@@ -1,72 +1,276 @@
-/* Floating container */
-.leaderboard-widget {
+/* .login-overlay {
   position: fixed;
-  bottom: 80px;
-  right: 20px;
-  text-align: right;
-  z-index: 9999;
-  font-family: Arial, sans-serif;
-}
-
-/* Toggle button */
-.leaderboard-toggle {
-  background: linear-gradient(135deg, #634444, #061ba7);
-  color: white;
-  border: none;
-  padding: 10px 16px;
-  border-radius: 25px;
-  font-size: 14px;
-  font-weight: bold;
-  cursor: pointer;
-  box-shadow: 0 4px 8px rgba(176, 3, 3, 0.3);
-  transition: all 0.3s;
-}
-
-.leaderboard-toggle:hover {
-  transform: scale(1.05);
-  background: linear-gradient(135deg, #b11010, #000b55);
-
-}
-
-/* Panel */
-.leaderboard-panel {
-  margin-top: 10px;
-  background: rgba(30, 30, 30, 0.95);
-  color: white;
-  border-radius: 10px;
-  padding: 12px;
-  width: 280px;
-  max-height: 300px;
-  overflow-y: auto;
-  box-shadow: 0 8px 16px rgba(0,0,0,0.4);
-  animation: slideUp 0.3s ease-in-out;
-}
-
-@keyframes slideUp {
-  from { transform: translateY(20px); opacity: 0; }
-  to { transform: translateY(0); opacity: 1; }
-}
-
-.leaderboard-panel h3 {
-  margin-top: 0;
-  text-align: center;
-  font-size: 16px;
-  border-bottom: 1px solid #555;
-  padding-bottom: 6px;
-}
-
-.leaderboard-panel table {
+  top: 0;
+  left: 0;
   width: 100%;
-  border-collapse: collapse;
+  height: 100%;
+  background: rgba(0,0,0,0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.login-box {
+  background: #fff;
+  color: black;
+  padding: 2rem;
+  border-radius: 12px;
+  width: 300px;
+  text-align: center;
+  box-shadow: 0px 4px 15px rgba(0,0,0,0.2);
+}
+
+.login-box input {
+  width: 100%;
+  padding: 10px;
+  margin: 8px 0;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+}
+
+.login-box button {
+  margin-top: 10px;
+  padding: 10px;
+  width: 100%;
+  border: none;
+  border-radius: 6px;
+  background: #007bff;
+  color: white;
+  cursor: pointer;
+}
+
+.close-btn {
+  background: #dc3545;
+  margin-top: 8px;
+}
+.nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-left: auto;
+}
+
+.welcome-container {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: #222;
+  padding: 6px 12px;
+  border-radius: 20px;
+  border: 1px solid #444;
+  color: #eee;
   font-size: 14px;
 }
 
-.leaderboard-panel th,
-.leaderboard-panel td {
-  padding: 6px;
-  text-align: center;
+.welcome-text {
+  font-weight: 500;
 }
 
-.leaderboard-panel tr:nth-child(even) {
+.logout-btn {
+  background: #ff4d4d;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 12px;
+  cursor: pointer;
+  font-size: 13px;
+  color: white;
+  transition: 0.3s;
+}
+
+.logout-btn:hover {
+  background: #cc0000;
+}
+
+.login-btn {
+  background: #007bff;
+  border: none;
+  padding: 6px 14px;
+  border-radius: 12px;
+  cursor: pointer;
+  font-size: 14px;
+  color: white;
+  transition: 0.3s;
+}
+
+.login-btn:hover {
+  background: #0056b3;
+}
+
+.theme-toggle {
+  background: #444;
+  border: none;
+  padding: 6px 14px;
+  border-radius: 12px;
+  cursor: pointer;
+  font-size: 14px;
+  color: white;
+  transition: 0.3s;
+}
+
+.theme-toggle:hover {
+  background: #666;
+} */
+
+
+/* Overlay background */
+.login-overlay { 
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.65);
+  backdrop-filter: blur(6px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  animation: fadeIn 0.4s ease-in-out;
+}
+
+/* Login box */
+.login-box {
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: #fff;
+  padding: 2.2rem;
+  border-radius: 18px;
+  width: 340px;
+  text-align: center;
+  box-shadow: 0px 8px 25px rgba(0,0,0,0.3);
+  animation: scaleUp 0.35s ease;
+}
+
+/* Inputs */
+.login-box input {
+  width: 100%;
+  padding: 12px 14px;
+  margin: 10px 0;
+  border-radius: 10px;
+  border: 1px solid rgba(255,255,255,0.3);
   background: rgba(255, 255, 255, 0.1);
+  color: #fff;
+  outline: none;
+  transition: 0.3s;
+}
+
+.login-box input:focus {
+  border-color: #00c6ff;
+  box-shadow: 0 0 8px rgba(0, 198, 255, 0.5);
+  background: rgba(255, 255, 255, 0.2);
+}
+
+/* Buttons */
+.login-box button {
+  margin-top: 12px;
+  padding: 12px;
+  width: 100%;
+  border: none;
+  border-radius: 10px;
+  background: linear-gradient(135deg, #007bff, #00c6ff);
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.login-box button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 15px rgba(0, 198, 255, 0.4);
+}
+
+/* Close button */
+.close-btn {
+  background: linear-gradient(135deg, #ff4d4d, #cc0000);
+}
+
+.close-btn:hover {
+  box-shadow: 0 6px 15px rgba(255, 77, 77, 0.5);
+}
+
+/* Nav actions */
+.nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-left: auto;
+}
+
+/* Welcome container */
+.welcome-container {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: rgba(255,255,255,0.08);
+  padding: 6px 14px;
+  border-radius: 20px;
+  border: 1px solid rgba(255,255,255,0.15);
+  color: #fff;
+  font-size: 15px;
+  font-weight: 500;
+}
+
+/* Logout button */
+.logout-btn {
+  background: linear-gradient(135deg, #ff4d4d, #cc0000);
+  border: none;
+  padding: 6px 14px;
+  border-radius: 14px;
+  cursor: pointer;
+  font-size: 14px;
+  color: white;
+  transition: all 0.3s ease;
+}
+
+.logout-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 15px rgba(255, 77, 77, 0.5);
+}
+
+/* Login button */
+.login-btn {
+  background: linear-gradient(135deg, #007bff, #00c6ff);
+  border: none;
+  padding: 6px 16px;
+  border-radius: 14px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 500;
+  color: white;
+  transition: all 0.3s ease;
+}
+
+.login-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 15px rgba(0, 198, 255, 0.5);
+}
+
+/* Theme toggle */
+.theme-toggle {
+  background: linear-gradient(135deg, #444, #666);
+  border: none;
+  padding: 6px 16px;
+  border-radius: 14px;
+  cursor: pointer;
+  font-size: 14px;
+  color: white;
+  transition: 0.3s ease;
+}
+
+.theme-toggle:hover {
+  transform: scale(1.05);
+  background: linear-gradient(135deg, #555, #777);
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes scaleUp {
+  from { transform: scale(0.8); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
 }
